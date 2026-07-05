@@ -11,20 +11,25 @@ import { VacancyDetailPage } from '@/pages/vacancy-detail'
 import { ItStepRbPage } from '@/pages/it-step-rb'
 import { ROUTES } from '@/shared/config/routes'
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: ROUTES.home,
+      element: <Layout />,
+      children: [
+        { index: true, element: <HomePage /> },
+        { path: ROUTES.itEducation, element: <ItEducationPage /> },
+        { path: '/courses/:slug', element: <CourseDetailPage /> },
+        { path: ROUTES.ctPrep, element: <CtPrepPage /> },
+        { path: ROUTES.news, element: <NewsPage /> },
+        { path: '/news/:slug', element: <NewsDetailPage /> },
+        { path: ROUTES.vacancies, element: <VacanciesPage /> },
+        { path: '/vacancies/:slug', element: <VacancyDetailPage /> },
+        { path: ROUTES.itStepRb, element: <ItStepRbPage /> },
+      ],
+    },
+  ],
   {
-    path: ROUTES.home,
-    element: <Layout />,
-    children: [
-      { index: true, element: <HomePage /> },
-      { path: ROUTES.itEducation, element: <ItEducationPage /> },
-      { path: '/courses/:slug', element: <CourseDetailPage /> },
-      { path: ROUTES.ctPrep, element: <CtPrepPage /> },
-      { path: ROUTES.news, element: <NewsPage /> },
-      { path: '/news/:slug', element: <NewsDetailPage /> },
-      { path: ROUTES.vacancies, element: <VacanciesPage /> },
-      { path: '/vacancies/:slug', element: <VacancyDetailPage /> },
-      { path: ROUTES.itStepRb, element: <ItStepRbPage /> },
-    ],
+    basename: '/it-step',
   },
-])
+)
