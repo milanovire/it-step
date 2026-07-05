@@ -1,0 +1,62 @@
+@use '@/app/styles/variables' as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  @include glass;
+  border-radius: $radius-lg;
+  padding: 32px;
+  height: 100%;
+  transition: all $transition;
+  border: 1px solid $color-border-light;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+    border-color: rgba(0, 102, 204, 0.2);
+
+    .iconWrap {
+      background: linear-gradient(135deg, $color-primary, $color-accent);
+      color: $color-white;
+      transform: scale(1.05);
+    }
+  }
+}
+
+.iconWrap {
+  width: 52px;
+  height: 52px;
+  border-radius: $radius-md;
+  background: $color-primary-light;
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all $transition;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 10px;
+}
+
+.cardText {
+  font-size: 14px;
+  color: $color-text-secondary;
+  line-height: 1.6;
+}

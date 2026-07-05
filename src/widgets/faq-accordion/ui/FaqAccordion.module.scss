@@ -1,0 +1,57 @@
+@use '@/app/styles/variables' as *;
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item {
+  background: $color-white;
+  border-radius: $radius-md;
+  border: 1px solid $color-border-light;
+  overflow: hidden;
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-text;
+  text-align: left;
+  transition: background $transition;
+
+  &:hover {
+    background: $color-primary-light;
+  }
+
+  &.open {
+    color: $color-primary;
+
+    .icon {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  color: $color-primary;
+  transition: transform $transition;
+}
+
+.answerWrap {
+  overflow: hidden;
+}
+
+.answer {
+  padding: 0 24px 20px;
+  font-size: 15px;
+  color: $color-text-secondary;
+  line-height: 1.6;
+}

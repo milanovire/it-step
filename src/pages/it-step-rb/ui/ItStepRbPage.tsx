@@ -1,0 +1,236 @@
+import { Award, Globe, Building2, Users, MapPin } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Container } from '@/shared/ui/Container'
+import { Section, SectionHeader } from '@/shared/ui/Section'
+import { AnimateInView } from '@/shared/ui/AnimateInView'
+import { CONTACTS } from '@/shared/config/contacts'
+import { HERO_CONTAINER_ID } from '@/shared/config/hero'
+import styles from './ItStepRbPage.module.scss'
+
+const stats = [
+  { value: '1999', label: 'год основания' },
+  { value: '170K+', label: 'выпускников' },
+  { value: '20+', label: 'стран мира' },
+  { value: '15+', label: 'филиалов в РБ' },
+]
+
+const branches = [
+  {
+    city: 'Минск',
+    address: 'г. Минск, ул. Притыцкого, 62',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop',
+  },
+  {
+    city: 'Витебск',
+    address: 'г. Витебск, пр-т Московский, 31А',
+    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&h=400&fit=crop',
+  },
+  {
+    city: 'Гомель',
+    address: 'г. Гомель, пр-т Речицкий, 5В',
+    image: 'https://images.unsplash.com/photo-1497215842964-222b460dc094?w=600&h=400&fit=crop',
+  },
+  {
+    city: 'Брест',
+    address: 'г. Брест, ул. Советская, 56',
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=400&fit=crop',
+  },
+]
+
+const advantages = [
+  {
+    icon: Globe,
+    title: 'Международная сеть',
+    description: 'IT ШАГ — крупнейшая международная сеть IT-образования с центрами в 20 странах.',
+  },
+  {
+    icon: Award,
+    title: 'Лицензия и аккредитация',
+    description: 'Лицензия Министерства образования РБ. Авторизованный центр Microsoft, Cisco, Autodesk.',
+  },
+  {
+    icon: Users,
+    title: 'Практикующие преподаватели',
+    description: 'Занятия ведут действующие IT-специалисты с реальным опытом работы.',
+  },
+  {
+    icon: Building2,
+    title: 'Современные аудитории',
+    description: 'Компьютерные классы с новейшим оборудованием, проекторами и 3D-принтерами.',
+  },
+]
+
+export function ItStepRbPage() {
+  return (
+    <>
+      <section id={HERO_CONTAINER_ID} className={styles.hero}>
+        <div className={styles.heroBg}>
+          <img
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&h=900&fit=crop"
+            alt="IT ШАГ в Беларуси"
+          />
+          <div className={styles.heroOverlay} />
+        </div>
+        <Container>
+          <motion.div
+            className={styles.heroContent}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className={styles.heroTitle}>IT ШАГ в Республике Беларусь</h1>
+            <p className={styles.heroDesc}>
+              Лидер профессионального компьютерного образования с 1999 года.
+              Более 15 филиалов по всей стране готовят IT-специалистов мирового уровня.
+            </p>
+          </motion.div>
+        </Container>
+      </section>
+
+      <Section background="white">
+        <Container>
+          <div className={styles.statsGrid}>
+            {stats.map((stat, i) => (
+              <AnimateInView key={stat.label} delay={i * 0.08}>
+                <div className={styles.statCard}>
+                  <span className={styles.statValue}>{stat.value}</span>
+                  <span className={styles.statLabel}>{stat.label}</span>
+                </div>
+              </AnimateInView>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <div className={styles.historyGrid}>
+            <AnimateInView direction="left">
+              <SectionHeader
+                title="История и миссия"
+                subtitle=""
+                align="left"
+              />
+              <p className={styles.text}>
+                Компьютерная Академия IT ШАГ была основана в 1999 году и с тех пор
+                стала крупнейшим авторизованным учебным центром в сфере IT-образования
+                в Беларуси. С 29 ноября 2017 года академия имеет лицензию на право
+                осуществления образовательной деятельности от Министерства образования
+                Республики Беларусь.
+              </p>
+              <p className={styles.text}>
+                Наша миссия — дать каждому возможность получить качественное IT-образование
+                и построить успешную карьеру в одной из самых перспективных отраслей.
+                Мы обучаем детей от 7 лет и взрослых без возрастных ограничений.
+              </p>
+            </AnimateInView>
+            <AnimateInView direction="right" delay={0.1}>
+              <div className={styles.historyImage}>
+                <img
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&h=500&fit=crop"
+                  alt="Студенты IT ШАГ"
+                />
+              </div>
+            </AnimateInView>
+          </div>
+        </Container>
+      </Section>
+
+      <Section background="white">
+        <Container>
+          <SectionHeader title="Наши преимущества" />
+          <div className={styles.advantagesGrid}>
+            {advantages.map((item, i) => (
+              <AnimateInView key={item.title} delay={i * 0.08}>
+                <div className={styles.advantageCard}>
+                  <div className={styles.advantageIcon}>
+                    <item.icon size={24} />
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </AnimateInView>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <SectionHeader
+            title="Филиалы в Беларуси"
+            subtitle="IT ШАГ представлена в крупнейших городах страны"
+          />
+          <div className={styles.branchesGrid}>
+            {branches.map((branch, i) => (
+              <AnimateInView key={branch.city} delay={i * 0.08}>
+                <div className={styles.branchCard}>
+                  <div className={styles.branchImage}>
+                    <img src={branch.image} alt={`IT ШАГ ${branch.city}`} />
+                  </div>
+                  <div className={styles.branchInfo}>
+                    <h3>{branch.city}</h3>
+                    <p>
+                      <MapPin size={14} />
+                      {branch.address}
+                    </p>
+                  </div>
+                </div>
+              </AnimateInView>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section background="white">
+        <Container>
+          <SectionHeader title="Как нас найти" subtitle="IT ШАГ в Витебске" />
+          <div className={styles.mapGrid}>
+            <AnimateInView direction="left">
+              <div className={styles.mapWrap}>
+                <iframe
+                  title="Карта IT ШАГ Витебск"
+                  src="https://yandex.ru/map-widget/v1/?um=constructor%3A7c8f9e0a1b2c3d4e5f6a7b8c9d0e1f2&source=mapframe&ll=30.223211%2C55.178491&mode=poi&poi%5Bpoint%5D=30.222975%2C55.178500&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D32271056665&pt=30.223740%2C55.177830%2Cpm2rdm&z=19"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  allowFullScreen
+                />
+              </div>
+            </AnimateInView>
+            <AnimateInView direction="right" delay={0.1}>
+              <div className={styles.contactCard}>
+                <h3>Контакты Витебского филиала</h3>
+                <div className={styles.contactItem}>
+                  <MapPin size={20} />
+                  <div>
+                    <strong>Адрес</strong>
+                    <p>{CONTACTS.address.text}</p>
+                  </div>
+                </div>
+                <div className={styles.contactItem}>
+                  <Users size={20} />
+                  <div>
+                    <strong>Поступление</strong>
+                    <p>
+                      <a href={CONTACTS.admission.href}>{CONTACTS.admission.phone}</a>
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.contactItem}>
+                  <Building2 size={20} />
+                  <div>
+                    <strong>Email</strong>
+                    <p>
+                      <a href={`mailto:${CONTACTS.email}`}>{CONTACTS.email}</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </AnimateInView>
+          </div>
+        </Container>
+      </Section>
+    </>
+  )
+}

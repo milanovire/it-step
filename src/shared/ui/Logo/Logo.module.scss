@@ -1,0 +1,57 @@
+@use '@/app/styles/variables' as *;
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity $transition;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+
+.default .icon {
+  color: $color-primary;
+}
+
+.light .icon {
+  color: $color-white;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.default .brand {
+  color: $color-text;
+}
+
+.default .sub {
+  color: $color-primary;
+}
+
+.light .brand,
+.light .sub {
+  color: $color-white;
+}
+
+.light .sub {
+  opacity: 0.8;
+}

@@ -1,0 +1,55 @@
+@use '@/app/styles/variables' as *;
+
+.button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: $color-primary;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 4px 24px rgba(0, 60, 120, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  cursor: pointer;
+  transition:
+    background $transition,
+    border-color $transition,
+    box-shadow $transition,
+    transform $transition,
+    color $transition;
+
+  &:hover {
+    background: $color-white;
+    border-color: rgba(0, 102, 204, 0.22);
+    color: $color-primary-dark;
+    transform: translateY(-3px);
+    box-shadow:
+      0 8px 32px rgba(0, 102, 204, 0.16),
+      0 1px 0 rgba(255, 255, 255, 0.95) inset;
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+  }
+
+  @include respond-to(md) {
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}

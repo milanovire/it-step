@@ -1,0 +1,126 @@
+@use '@/app/styles/variables' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: $color-white;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid $color-border-light;
+  transition: all $transition;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+    border-color: rgba(0, 102, 204, 0.15);
+
+    .imageWrap img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.inCarousel {
+  &:hover {
+    transform: translateY(-3px);
+
+    .imageWrap img {
+      transform: scale(1.03);
+    }
+  }
+}
+
+.imageWrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  color: $color-white;
+}
+
+.badge_children {
+  background: rgba(124, 58, 237, 0.9);
+}
+
+.badge_seasonal {
+  background: rgba(234, 88, 12, 0.9);
+}
+
+.kidsCard:hover {
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+.body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 14px;
+  color: $color-text-secondary;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: $color-text-muted;
+  font-weight: 500;
+
+  svg {
+    color: $color-primary;
+  }
+}
+
+.btn {
+  align-self: flex-start;
+  pointer-events: none;
+}

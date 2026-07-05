@@ -1,0 +1,137 @@
+@use '@/app/styles/variables' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 12px 0;
+  pointer-events: none;
+}
+
+.shell {
+  pointer-events: auto;
+  border-radius: $radius-xl;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    0 4px 24px rgba(0, 60, 120, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 -1px 0 rgba(0, 102, 204, 0.04) inset;
+  overflow: hidden;
+  transition:
+    background $transition,
+    box-shadow $transition,
+    border-color $transition;
+
+  .scrolled & {
+    background: rgba(255, 255, 255, 0.78);
+    border-color: rgba(255, 255, 255, 0.9);
+    box-shadow:
+      0 8px 40px rgba(0, 60, 120, 0.1),
+      0 1px 0 rgba(255, 255, 255, 0.95) inset;
+  }
+
+  .home:not(.scrolled) & {
+    background: rgba(255, 255, 255, 0.42);
+    border-color: rgba(255, 255, 255, 0.55);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      0 1px 0 rgba(255, 255, 255, 0.5) inset;
+  }
+}
+
+.mainRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 16px;
+}
+
+.navPill {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+.navLink {
+  position: relative;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-text-secondary;
+  border-radius: 100px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  z-index: 1;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &.active {
+    color: $color-primary;
+  }
+}
+
+.activeBg {
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 102, 204, 0.1);
+  box-shadow:
+    0 2px 8px rgba(0, 102, 204, 0.1),
+    0 1px 0 rgba(255, 255, 255, 1) inset;
+  z-index: -1;
+}
+
+.navText {
+  position: relative;
+  z-index: 1;
+}
+
+.menuBtn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  color: $color-text;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.85);
+    color: $color-primary;
+    border-color: rgba(0, 102, 204, 0.15);
+    box-shadow: 0 4px 16px rgba(0, 102, 204, 0.1);
+  }
+}
+
+@include respond-to(lg) {
+  .header {
+    padding: 10px 0;
+  }
+
+  .shell {
+    border-radius: $radius-lg;
+  }
+
+  .mainRow {
+    padding: 10px 14px;
+  }
+}

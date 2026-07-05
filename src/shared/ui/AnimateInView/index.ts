@@ -1,0 +1,1 @@
+export { AnimateInView } from './AnimateInView'

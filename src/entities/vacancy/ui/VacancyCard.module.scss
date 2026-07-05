@@ -1,0 +1,84 @@
+@use '@/app/styles/variables' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: $color-white;
+  border-radius: $radius-lg;
+  padding: 28px;
+  border: 1px solid $color-border-light;
+  transition: all $transition;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+    border-color: rgba(0, 102, 204, 0.15);
+
+    .link {
+      color: $color-primary;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: $color-text;
+  line-height: 1.3;
+}
+
+.salary {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  background: $color-primary-light;
+  color: $color-primary;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: $color-text-muted;
+
+  svg {
+    color: $color-primary;
+  }
+}
+
+.description {
+  font-size: 14px;
+  color: $color-text-secondary;
+  line-height: 1.5;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-text-secondary;
+  transition: color $transition;
+}
