@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createHashRouter } from 'react-router-dom'
 import { Layout } from '@/widgets/layout'
 import { HomePage } from '@/pages/home'
 import { ItEducationPage } from '@/pages/it-education'
@@ -11,25 +11,20 @@ import { VacancyDetailPage } from '@/pages/vacancy-detail'
 import { ItStepRbPage } from '@/pages/it-step-rb'
 import { ROUTES } from '@/shared/config/routes'
 
-export const router = createBrowserRouter(
-  [
-    {
-      path: ROUTES.home,
-      element: <Layout />,
-      children: [
-        { index: true, element: <HomePage /> },
-        { path: ROUTES.itEducation, element: <ItEducationPage /> },
-        { path: '/courses/:slug', element: <CourseDetailPage /> },
-        { path: ROUTES.ctPrep, element: <CtPrepPage /> },
-        { path: ROUTES.news, element: <NewsPage /> },
-        { path: '/news/:slug', element: <NewsDetailPage /> },
-        { path: ROUTES.vacancies, element: <VacanciesPage /> },
-        { path: '/vacancies/:slug', element: <VacancyDetailPage /> },
-        { path: ROUTES.itStepRb, element: <ItStepRbPage /> },
-      ],
-    },
-  ],
+export const router = createHashRouter([
   {
-    basename: '/it-step',
+    path: '/',
+    element: <Layout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: 'it-education', element: <ItEducationPage /> },
+      { path: 'courses/:slug', element: <CourseDetailPage /> },
+      { path: 'ct-prep', element: <CtPrepPage /> },
+      { path: 'news', element: <NewsPage /> },
+      { path: 'news/:slug', element: <NewsDetailPage /> },
+      { path: 'vacancies', element: <VacanciesPage /> },
+      { path: 'vacancies/:slug', element: <VacancyDetailPage /> },
+      { path: 'it-step-rb', element: <ItStepRbPage /> },
+    ],
   },
-)
+])
