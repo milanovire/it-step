@@ -9,7 +9,6 @@ import { NewsDetailPage } from '@/pages/news-detail'
 import { VacanciesPage } from '@/pages/vacancies'
 import { VacancyDetailPage } from '@/pages/vacancy-detail'
 import { ItStepRbPage } from '@/pages/it-step-rb'
-import { ROUTES } from '@/shared/config/routes'
 
 export const router = createHashRouter([
   {
