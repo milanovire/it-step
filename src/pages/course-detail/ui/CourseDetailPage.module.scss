@@ -1,7 +1,5 @@
 @use '@/app/styles/variables' as *;
 
-// ─── Hero ───────────────────────────────────────────────
-
 .hero {
   position: relative;
   min-height: 520px;
@@ -116,7 +114,6 @@
   }
 }
 
-// ─── Shared ─────────────────────────────────────────────
 
 .eyebrow {
   display: inline-flex;
@@ -160,8 +157,6 @@
     gap: 32px;
   }
 }
-
-// ─── About ──────────────────────────────────────────────
 
 .aboutSection {
   position: relative;
@@ -273,8 +268,6 @@
   }
 }
 
-// ─── Skills ─────────────────────────────────────────────
-
 .skillsSection {
   padding: 80px 0;
   background: $color-bg;
@@ -330,8 +323,6 @@
   flex-shrink: 0;
   margin-top: 1px;
 }
-
-// ─── Program ────────────────────────────────────────────
 
 .programSection {
   padding: 80px 0;
@@ -420,8 +411,6 @@
   margin-bottom: 12px;
 }
 
-// ─── Teachers ───────────────────────────────────────────
-
 .teachersSection {
   position: relative;
   padding: 80px 0;
@@ -467,8 +456,6 @@
   margin-bottom: 8px;
 }
 
-// ─── FAQ ────────────────────────────────────────────────
-
 .faqSection {
   padding: 80px 0;
   background: $color-bg;
@@ -491,8 +478,6 @@
     padding: 28px 20px;
   }
 }
-
-// ─── Apply ──────────────────────────────────────────────
 
 .applySection {
   position: relative;

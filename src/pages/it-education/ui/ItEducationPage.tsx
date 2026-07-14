@@ -24,7 +24,7 @@ const TABS: { id: TabId; label: string; icon: typeof Briefcase }[] = [
 const TAB_CONTENT: Record<TabId, { title: string; subtitle: string }> = {
   adults: {
     title: 'IT-курсы для взрослых',
-    subtitle: 'Профессиональные программы с нуля до junior-специалиста. Международный диплом и помощь с трудоустройством.',
+    subtitle: 'Профессиональные программы с нуля до junior-специалиста.',
   },
   children: {
     title: 'Обучение для детей и подростков',
@@ -75,16 +75,16 @@ export function ItEducationPage() {
             </p>
             <div className={styles.heroStats}>
               <div className={styles.stat}>
-                <strong>10+</strong>
+                <strong>7</strong>
                 <span>направлений для взрослых</span>
               </div>
               <div className={styles.stat}>
-                <strong>4</strong>
-                <span>возрастные группы детей</span>
+                <strong>6</strong>
+                <span>возрастных групп детей</span>
               </div>
               <div className={styles.stat}>
-                <strong>4</strong>
-                <span>сезонных программы</span>
+                <strong>1</strong>
+                <span>сезонная программа</span>
               </div>
             </div>
           </motion.div>

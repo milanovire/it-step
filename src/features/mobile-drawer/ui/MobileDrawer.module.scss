@@ -3,6 +3,7 @@
 .overlay {
   position: fixed;
   inset: 0;
+  pointer-events: auto;
   background: rgba(8, 20, 40, 0.35);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -11,6 +12,7 @@
 
 .drawer {
   position: fixed;
+  pointer-events: auto;
   top: 12px;
   right: 12px;
   bottom: 12px;
