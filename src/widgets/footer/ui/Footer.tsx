@@ -39,7 +39,7 @@ export function Footer() {
             <Logo variant="light" />
             <p className={styles.description}>
               IT ШАГ — лидер в сфере профессионального компьютерного
-              образования в Беларуси с 1999 года.
+              образования в Беларуси с 2013 года.
             </p>
             <div className={styles.socials}>
               {SOCIAL_LINKS.map((link) => (
@@ -76,7 +76,8 @@ export function Footer() {
             <ul className={styles.contactList}>
               <li>
                 <Phone size={16} />
-                <a href={CONTACTS.admission.href}>{CONTACTS.admission.phone}</a>
+                <a href={CONTACTS.admission.href}>{CONTACTS.admission.phone}</a> <br />
+                <a href={CONTACTS.academic.href}>{CONTACTS.academic.phone}</a>
               </li>
               <li>
                 <Mail size={16} />
@@ -92,19 +93,18 @@ export function Footer() {
           <div className={styles.column}>
             <h4 className={styles.columnTitle}>Режим работы</h4>
             <ul className={styles.schedule}>
-              <li>Пн–Пт: 9:00 – 20:00</li>
-              <li>Сб: 10:00 – 16:00</li>
-              <li>Вс: выходной</li>
+              <li>Пн–Пт (Администрация): 9:00 – 18:00</li>
+              <li>Пн-Вс (Учебный отдел): 9:00 – 19:00</li>
             </ul>
           </div>
         </div>
 
         <div className={styles.bottom}>
           <p>
-            &copy; 1999–{currentYear} Учебный центр IT ШАГ. Все права защищены.
+            &copy; 2013–{currentYear} Учебный центр IT ШАГ. Все права защищены.
           </p>
           <p className={styles.legal}>
-            Зарегистрированный товарный знак. Лицензия Министерства образования РБ.
+           Зарегистрированный товарный знак ООО "АЙТИ ШАГ СФЕРА" УНП 193339537.
           </p>
         </div>
       </Container>

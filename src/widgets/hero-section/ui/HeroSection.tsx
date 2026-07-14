@@ -26,14 +26,12 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
           >
-            <span className={styles.badge}>Витебск | С 1999 года</span>
+            <span className={styles.badge}>Витебск | С 2013 года</span>
             <h1 className={styles.title}>
-              IT ШАГ — образование, которое открывает путь в IT
+              IT ШАГ — центр дополнительного образования для детей и взрослых
             </h1>
             <p className={styles.description}>
-              Международная академия программирования и цифровых технологий.
-              Обучаем с нуля до профессионала в малых группах с практикующими
-              преподавателями. Международный диплом и помощь с трудоустройством.
+              Обучаем современным IT-направлениям с нуля. Практические занятия в небольших группах, опытные преподаватели и программы, ориентированные на реальные навыки, помогают детям и взрослым уверенно осваивать цифровые технологии.
             </p>
             <div className={styles.actions}>
               <Button to={ROUTES.itEducation} size="lg">
@@ -60,13 +58,13 @@ export function HeroSection() {
             </div>
             <div className={styles.statsCard}>
               <div className={styles.stat}>
-                <span className={styles.statValue}>170K+</span>
+                <span className={styles.statValue}>17K+</span>
                 <span className={styles.statLabel}>выпускников</span>
               </div>
               <div className={styles.statDivider} />
               <div className={styles.stat}>
-                <span className={styles.statValue}>20+</span>
-                <span className={styles.statLabel}>стран мира</span>
+                <span className={styles.statValue}>8</span>
+                <span className={styles.statLabel}>филиалов в РБ</span>
               </div>
             </div>
           </motion.div>

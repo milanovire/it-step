@@ -37,7 +37,7 @@ export function CourseDetailPage() {
                 <span><Clock size={18} /> {course.duration}</span>
                 <span><Banknote size={18} /> {course.price}</span>
               </div>
-              <a href="#apply" className={styles.applyBtn}>Записаться на курс</a>
+              <a href="#" onClick = {(e) => e.preventDefault()} className={styles.applyBtn}>Записаться на курс</a>
             </AnimateInView>
           </div>
         </Container>
@@ -160,7 +160,7 @@ export function CourseDetailPage() {
             <div className={styles.applyGrid}>
               <AnimateInView direction="left">
                 <span className={styles.eyebrow}>Запись на обучение</span>
-                <h2 className={styles.sectionTitle}>Записаться на курс</h2>
+                <h2 onClick={(e) => e.preventDefault()} className={styles.sectionTitle} >Записаться на курс</h2>
                 <p className={styles.applyText}>
                   Оставьте заявку на «{course.title}» — мы свяжемся с вами
                   и проведём бесплатную консультацию
