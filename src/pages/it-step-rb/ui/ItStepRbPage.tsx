@@ -1,4 +1,4 @@
-import { Award, Globe, Building2, Users, MapPin } from 'lucide-react'
+import { Award, Building2, Users, MapPin } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Container } from '@/shared/ui/Container'
 import { Section, SectionHeader } from '@/shared/ui/Section'
@@ -8,16 +8,15 @@ import { HERO_CONTAINER_ID } from '@/shared/config/hero'
 import styles from './ItStepRbPage.module.scss'
 
 const stats = [
-  { value: '1999', label: 'год основания' },
-  { value: '170K+', label: 'выпускников' },
-  { value: '20+', label: 'стран мира' },
-  { value: '15+', label: 'филиалов в РБ' },
+  { value: '2013', label: 'год основания' },
+  { value: '17K+', label: 'выпускников' },
+  { value: '8', label: 'филиалов в РБ' },
 ]
 
 const branches = [
   {
     city: 'Минск',
-    address: 'г. Минск, ул. Притыцкого, 62',
+    address: 'г. Минск, ул. К. Маркса, 32',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop',
   },
   {
@@ -26,23 +25,38 @@ const branches = [
     image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&h=400&fit=crop',
   },
   {
-    city: 'Гомель',
-    address: 'г. Гомель, пр-т Речицкий, 5В',
-    image: 'https://images.unsplash.com/photo-1497215842964-222b460dc094?w=600&h=400&fit=crop',
+    city: 'Барановичи',
+    address: 'г. Барановичи, ул.Брестская, 13',
+    image: 'https://images.unsplash.com/photo-1606857521015-7f9fcf423740?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG9mZmljZXxlbnwwfHwwfHx8MA%3D%3D',
   },
   {
     city: 'Брест',
     address: 'г. Брест, ул. Советская, 56',
     image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=400&fit=crop',
   },
+  {
+    city: 'Гомель',
+    address: 'Гомель, ул. Советская, 20 (2 этаж)',
+    image: 'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fG9mZmljZXxlbnwwfHwwfHx8MA%3D%3D',
+  },
+  {
+    city: 'Гродно',
+    address: 'г. Гродно, ул. Мицкевича, д. 3 (2 этаж)',
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fG9mZmljZXxlbnwwfHwwfHx8MA%3D%3D',
+  },
+  {
+    city: 'Бобруйск',
+    address: 'г. Бобруйск ул.Горького, 12 (ТЦ Вэстор-2, 3 этаж) пр-т Строителей, 58(ТЦ Спектр)',
+    image: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fG9mZmljZXxlbnwwfHwwfHx8MA%3D%3D',
+  },
+  {
+    city: 'Могилёв',
+    address: 'г. Могилев, пер. Пожарный, д. 1а, 2й этаж',
+    image: 'https://images.unsplash.com/photo-1554232456-8727aae0cfa4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fG9mZmljZXxlbnwwfHwwfHx8MA%3D%3D',
+  },
 ]
 
 const advantages = [
-  {
-    icon: Globe,
-    title: 'Международная сеть',
-    description: 'IT ШАГ — крупнейшая международная сеть IT-образования с центрами в 20 странах.',
-  },
   {
     icon: Award,
     title: 'Лицензия и аккредитация',
@@ -80,8 +94,8 @@ export function ItStepRbPage() {
           >
             <h1 className={styles.heroTitle}>IT ШАГ в Республике Беларусь</h1>
             <p className={styles.heroDesc}>
-              Лидер профессионального компьютерного образования с 1999 года.
-              Более 15 филиалов по всей стране готовят IT-специалистов мирового уровня.
+              Лидер профессионального компьютерного образования с 2013 года.
+              Более 8 филиалов по всей стране готовят IT-специалистов мирового уровня.
             </p>
           </motion.div>
         </Container>
@@ -112,7 +126,7 @@ export function ItStepRbPage() {
                 align="left"
               />
               <p className={styles.text}>
-                Компьютерная Академия IT ШАГ была основана в 1999 году и с тех пор
+                Компьютерная Академия IT ШАГ была основана в 2013 году и с тех пор
                 стала крупнейшим авторизованным учебным центром в сфере IT-образования
                 в Беларуси. С 29 ноября 2017 года академия имеет лицензию на право
                 осуществления образовательной деятельности от Министерства образования
@@ -213,7 +227,8 @@ export function ItStepRbPage() {
                   <div>
                     <strong>Поступление</strong>
                     <p>
-                      <a href={CONTACTS.admission.href}>{CONTACTS.admission.phone}</a>
+                      <a href={CONTACTS.admission.href}>{CONTACTS.admission.phone}</a> <br/>
+                      <a href={CONTACTS.academic.href}>{CONTACTS.academic.phone}</a>
                     </p>
                   </div>
                 </div>
