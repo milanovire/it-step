@@ -2,7 +2,6 @@ export interface Vacancy {
   slug: string
   title: string
   city: string
-  employmentType: string
   shortDescription: string
   description: string
   requirements: string[]

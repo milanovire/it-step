@@ -52,7 +52,7 @@ export function HeroSection() {
           >
             <div className={styles.floatingCard}>
               <img
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=700&fit=crop"
+                src="https://plus.unsplash.com/premium_photo-1661369599716-061c6d0a19a5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDkyfHx8ZW58MHx8fHx8"
                 alt="Обучение программированию"
               />
             </div>

@@ -5,7 +5,7 @@ export const CONTACTS = {
     href: 'tel:+375333335354',
   },
   academic: {
-    label: 'Учебный отдел',
+    label: 'Учебный центр',
     phone: '+375 (33) 333-53-50',
     href: 'tel:+375333335350',
   },
@@ -28,5 +28,4 @@ export const SOCIAL_LINKS = [
   { name: 'Instagram', href: 'https://www.instagram.com/itstep.vitebsk', icon: 'instagram' },
   { name: 'VK', href: 'https://vk.com/itstepvitebsk', icon: 'vk' },
   { name: 'Telegram', href: 'https://t.me/+HzsTlVJE6Tg4NGE6', icon: 'telegram' },
-  { name: 'YouTube', href: '#', icon: 'youtube' },
 ] as const

@@ -94,7 +94,7 @@ export function Footer() {
             <h4 className={styles.columnTitle}>Режим работы</h4>
             <ul className={styles.schedule}>
               <li>Пн–Пт (Администрация): 9:00 – 18:00</li>
-              <li>Пн-Вс (Учебный отдел): 9:00 – 19:00</li>
+              <li>Пн-Вс (Учебный центр): 9:00 – 21:30</li>
             </ul>
           </div>
         </div>

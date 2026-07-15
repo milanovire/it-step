@@ -625,8 +625,8 @@ export const courses: Course[] = [
     shortDescription: 'Ручное и автоматизированное тестирование, обеспечение качества программного обеспечения.',
     description:
       'QA-инженеры — незаменимая часть любой IT-команды. Освойте методологии тестирования, инструменты автоматизации и работу с баг-трекингом.',
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop',
-    heroImage: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1600&h=900&fit=crop',
+    image: 'https://images.unsplash.com/photo-1570215170761-f056128eda48?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UUF8ZW58MHx8MHx8fDA%3D',
+    heroImage: 'https://images.unsplash.com/photo-1570215170761-f056128eda48?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UUF8ZW58MHx8MHx8fDA%3D',
     ageGroup: 'от 18 лет',
     duration: '8 месяцев',
     price: '398 BYN/мес.',
@@ -761,7 +761,7 @@ export const courses: Course[] = [
     shortDescription: 'Проектирование пользовательских интерфейсов, UX-исследования и визуальный дизайн.',
     description:
       'Станьте дизайнером цифровых продуктов. Научитесь проводить исследования, создавать прототипы, проектировать интерфейсы и работать в Figma.',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop',
+    image: 'https://images.unsplash.com/photo-1602576666092-bf6447a729fc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGRlc2lnbnxlbnwwfHwwfHx8MA%3D%3D',
     heroImage: 'https://images.unsplash.com/photo-1602576666092-bf6447a729fc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGRlc2lnbnxlbnwwfHwwfHx8MA%3D%3D',
     ageGroup: 'от 18 лет',
     duration: '8 месяцев',

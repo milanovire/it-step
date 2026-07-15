@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { MapPin, Briefcase, ArrowRight } from 'lucide-react'
+import { MapPin, ArrowRight } from 'lucide-react'
 import { ROUTES } from '@/shared/config/routes'
 import type { Vacancy } from '../model/types'
 import styles from './VacancyCard.module.scss'
@@ -19,10 +19,6 @@ export function VacancyCard({ vacancy }: VacancyCardProps) {
         <span className={styles.metaItem}>
           <MapPin size={14} />
           {vacancy.city}
-        </span>
-        <span className={styles.metaItem}>
-          <Briefcase size={14} />
-          {vacancy.employmentType}
         </span>
       </div>
       <p className={styles.description}>{vacancy.shortDescription}</p>

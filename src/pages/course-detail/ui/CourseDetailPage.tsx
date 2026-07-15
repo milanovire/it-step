@@ -1,11 +1,10 @@
 import { useParams, Navigate } from 'react-router-dom'
-import { Clock, Users, Banknote, CheckCircle, Sparkles, Award } from 'lucide-react'
+import { Clock, Users, Banknote, CheckCircle, Award } from 'lucide-react'
 import { Container } from '@/shared/ui/Container'
 import { SectionHeader } from '@/shared/ui/Section'
 import { AnimateInView } from '@/shared/ui/AnimateInView'
 import { ApplicationForm } from '@/features/application-form'
 import { FaqAccordion } from '@/widgets/faq-accordion'
-import { TeachersCarousel } from '@/widgets/teachers-carousel'
 import { getCourseBySlug } from '@/entities/course/model/courses'
 import { ROUTES } from '@/shared/config/routes'
 import { HERO_CONTAINER_ID } from '@/shared/config/hero'
@@ -118,26 +117,6 @@ export function CourseDetailPage() {
                 </AnimateInView>
               ))}
             </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className={styles.teachersSection}>
-        <div className={styles.teachersDecor} aria-hidden>
-          <span className={styles.grid} />
-        </div>
-        <Container>
-          <div className={styles.teachersPanel}>
-            <div className={styles.teachersHead}>
-              <div>
-                <span className={styles.eyebrow}>
-                  <Sparkles size={14} />
-                  Команда курса
-                </span>
-                <h2 className={styles.sectionTitle}>Преподаватели</h2>
-              </div>
-            </div>
-            <TeachersCarousel />
           </div>
         </Container>
       </section>

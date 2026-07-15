@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link } from 'react-router-dom'
-import { MapPin, Briefcase, ArrowLeft, CheckCircle } from 'lucide-react'
+import { MapPin, ArrowLeft, CheckCircle } from 'lucide-react'
 import { Container } from '@/shared/ui/Container'
 import { Section } from '@/shared/ui/Section'
 import { AnimateInView } from '@/shared/ui/AnimateInView'
@@ -29,7 +29,6 @@ export function VacancyDetailPage() {
             <h1 className={styles.title}>{vacancy.title}</h1>
             <div className={styles.meta}>
               <span><MapPin size={16} /> {vacancy.city}</span>
-              <span><Briefcase size={16} /> {vacancy.employmentType}</span>
               {vacancy.salary && <span className={styles.salary}>{vacancy.salary}</span>}
             </div>
           </AnimateInView>

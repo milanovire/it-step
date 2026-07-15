@@ -3,6 +3,8 @@ import {
   Users,
   Code2,
   HeartHandshake,
+  ClipboardList,
+  MonitorSmartphone
 } from 'lucide-react'
 import { Container } from '@/shared/ui/Container'
 import { Section, SectionHeader } from '@/shared/ui/Section'
@@ -34,6 +36,18 @@ const advantages = [
     description:
       'Консультации, гибкий график и индивидуальный подход к каждому.',
   },
+  {
+  icon: ClipboardList,
+  title: 'Электронный дневник MyStat',
+  description:
+    'Родители и учащиеся могут в любое время отслеживать посещаемость, успеваемость, домашние задания и расписание занятий через электронный дневник MyStat.',
+},
+{
+  icon: MonitorSmartphone,
+  title: 'Очное обучение',
+  description:
+    'Все занятия проходят в современных компьютерных классах с преподавателем. Мы не продаем записанные видеоуроки — обучение строится на живом общении, практике и постоянной обратной связи.',
+},
 ]
 
 export function AdvantagesSection() {
