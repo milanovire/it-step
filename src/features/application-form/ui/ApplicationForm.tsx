@@ -18,7 +18,7 @@ export function ApplicationForm({ courseName, compact }: ApplicationFormProps) {
 
     try {
       const response = await fetch(
-        'HERE_LINK_TO_BITRIX',
+        'https://itstep.bitrix24.by/rest/18830/lkinlptow620dq0k/crm.lead.add',
         {
           method: 'POST',
           headers: {
@@ -42,20 +42,26 @@ export function ApplicationForm({ courseName, compact }: ApplicationFormProps) {
                     },
                   ]
                 : [],
-              COMMENTS: formData.get('message') || '',
+               COMMENTS: `
+                Источник: Сайт
+                Страница: ${window.location.href}
+                Курс: ${courseName ?? 'Не указан'}
+                `,
             },
           }),
         }
       )
 
-      if (!response.ok) {
-        throw new Error('Ошибка отправки')
-      }
+    const result = await response.json()
+    if (!response.ok || result.error) {
+      console.error(result)
+      throw new Error(result.error_description || 'Ошибка отправки')
+    }
 
-      setSubmitted(true)
+    setSubmitted(true)
     } catch (error) {
-      console.error(error)
-      alert('Не удалось отправить заявку. Попробуйте позже.')
+    console.error(error)
+    alert('Не удалось отправить заявку. Попробуйте позже.')
     }
   }
 

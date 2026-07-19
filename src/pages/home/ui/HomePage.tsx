@@ -8,6 +8,7 @@ import { AnimateInView } from '@/shared/ui/AnimateInView'
 import { ApplicationForm } from '@/features/application-form'
 import { ROUTES } from '@/shared/config/routes'
 import styles from './HomePage.module.scss'
+import { ReviewsSection } from '@/widgets/reviews-section'
 
 export function HomePage() {
   return (
@@ -15,6 +16,7 @@ export function HomePage() {
       <HeroSection />
       <AdvantagesSection />
       <PopularCoursesSection />
+      <ReviewsSection /> 
       <Section background="gradient">
         <Container>
           <div className={styles.ctaGrid}>

@@ -32,7 +32,7 @@ const advantages = [
   },
   {
     icon: HeartHandshake,
-    title: 'Поддержка слушащих',
+    title: 'Поддержка слушателей',
     description:
       'Консультации, гибкий график и индивидуальный подход к каждому.',
   },
@@ -56,7 +56,7 @@ export function AdvantagesSection() {
       <Container>
         <SectionHeader
           title="Почему выбирают IT ШАГ"
-          subtitle="Мы создаём среду, в которой каждый студент может раскрыть свой потенциал и построить успешную карьеру в IT"
+          subtitle="Мы создаём среду, в которой каждый слушатель может раскрыть свой потенциал и построить успешную карьеру в IT"
         />
         <div className={styles.grid}>
           {advantages.map((item, index) => (
