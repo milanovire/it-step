@@ -1,7 +1,5 @@
 @use '@/app/styles/variables' as *;
 
-// ─── Hero ───────────────────────────────────────────────
-
 .hero {
   position: relative;
   min-height: 460px;
@@ -48,6 +46,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  margin-top: 10px;
   margin-bottom: 16px;
   padding: 6px 14px;
   font-size: 12px;
@@ -103,8 +102,6 @@
     font-weight: 500;
   }
 }
-
-// ─── Catalog ────────────────────────────────────────────
 
 .catalogSection {
   position: relative;
@@ -256,8 +253,6 @@
     grid-template-columns: 1fr;
   }
 }
-
-// ─── CTA ────────────────────────────────────────────────
 
 .ctaSection {
   padding: 80px 0;

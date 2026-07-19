@@ -282,34 +282,102 @@
 }
 
 @include respond-to(md) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .sectionHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .sectionHeadText {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .title {
-    font-size: 32px;
+    margin-bottom: 12px;
+    font-size: 30px;
+    line-height: 1.2;
   }
 
   .subtitle {
     font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .navControls {
+    align-self: flex-end;
+  }
+
+  .navBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .swiper {
+    padding: 4px 0 42px;
   }
 
   .card {
-    padding: 22px;
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .rating {
+    margin-bottom: 14px;
   }
 
   .text {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .author {
+    margin-top: 20px;
+    padding-top: 16px;
+
+    strong {
+      font-size: 17px;
+    }
+
+    span {
+      font-size: 14px;
+    }
   }
 
   .footer {
     flex-direction: column;
     align-items: flex-start;
+    gap: 20px;
   }
 
   .platforms {
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
-    gap: 14px;
+    gap: 12px;
+  }
+
+  .platform {
+    width: 100%;
+    justify-content: space-between;
+
+    span {
+      font-size: 16px;
+    }
+
+    small {
+      font-size: 14px;
+    }
   }
 
   .allReviews {
     margin-left: 0;
+    font-size: 15px;
   }
 }
