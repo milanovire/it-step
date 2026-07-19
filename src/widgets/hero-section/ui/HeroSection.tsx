@@ -12,7 +12,7 @@ export function HeroSection() {
       <div className={styles.bgImage}>
         <img
           src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=1080&fit=crop"
-          alt="Студенты IT ШАГ"
+          alt="Слушатели IT ШАГ"
           loading="eager"
         />
         <div className={styles.overlay} />
