@@ -2,7 +2,7 @@ import type { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'reac
 import { Link } from 'react-router-dom'
 import styles from './Button.module.scss'
 
-type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost'
+type ButtonVariant = 'primary' | 'cta' | 'ctaSubmit' | 'secondary' | 'outline' | 'ghost'
 type ButtonSize = 'sm' | 'md' | 'lg'
 
 interface BaseProps {

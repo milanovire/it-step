@@ -71,7 +71,7 @@ export const childrenPrograms: Course[] = [
 
   ageGroup: '7–8 лет',
   duration: '1 год',
-  price: '115 BYN',
+  price: '115 BYN/мес.',
 
   forWhom: [
     'Детей 7–8 лет (1–2 класс)',
@@ -159,7 +159,7 @@ export const childrenPrograms: Course[] = [
 
   duration: '5 лет',
 
-  price: '175 BYN в будние дни | 195 BYN в выходные дни',
+  price: '175 BYN/мес. в будние дни | 195 BYN/мес. в выходные дни',
 
   forWhom: [
     'Для учащихся 3–5 классов',
@@ -315,7 +315,7 @@ export const childrenPrograms: Course[] = [
 
   ageGroup: '12–14 лет ',
   duration: '3 года',
-  price: '175 BYN в будние дни | 195 BYN в выходные',
+  price: '175 BYN/мес. в будние дни | 195 BYN/мес. в выходные',
 
   forWhom: [
     'Подростков 12–14 лет (6-8 классы)',
@@ -353,11 +353,9 @@ export const childrenPrograms: Course[] = [
       ],
     },
     {
-      module: 'Робототехника и 3D',
+      module: ' 3D',
       topics: [
-        'Робототехника с использованием LEGO',
         '3D-моделирование',
-        '3D-печать',
         'Проектирование виртуальных миров',
       ],
     },
@@ -407,7 +405,7 @@ export const childrenPrograms: Course[] = [
 
     ageGroup: '12–14 лет',
     duration: '3 года',
-    price: '175 BYN в будние дни | 195 BYN в выходные',
+    price: '175 BYN/мес. в будние дни | 195 BYN/мес. в выходные',
 
     forWhom: [
       'Подростков 12–14 лет (6-8 классы)',
@@ -498,7 +496,7 @@ export const childrenPrograms: Course[] = [
 
     ageGroup: '15–17 лет',
     duration: '2 года',
-    price: '175 BYN в будние дни, 195 BYN в выходные',
+    price: '175 BYN/мес. в будние дни, 195 BYN/мес. в выходные',
 
     forWhom: [
       'Подростков 15–17 лет',
@@ -683,7 +681,7 @@ export const childrenPrograms: Course[] = [
 
   ageGroup: '8–16 лет',
   duration: '2 недели · июнь–август',
-  price: '270 BYN за поток',
+  price: '270 BYN/мес. за поток',
 
   forWhom: [
     'Детей 8–14 лет',

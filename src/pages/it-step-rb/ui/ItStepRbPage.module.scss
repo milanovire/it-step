@@ -21,7 +21,7 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(105deg, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.5) 100%);
+  background: rgba(10, 22, 40, 0.72);
 }
 
 .heroContent {
@@ -152,7 +152,7 @@
   width: 52px;
   height: 52px;
   border-radius: $radius-md;
-  background: linear-gradient(135deg, $color-primary, $color-accent);
+  background: $color-primary;
   color: $color-white;
   display: flex;
   align-items: center;

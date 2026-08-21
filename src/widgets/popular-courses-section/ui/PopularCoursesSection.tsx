@@ -35,10 +35,10 @@ export function PopularCoursesSection() {
         <div className={styles.panel}>
           <div className={styles.sectionHead}>
             <div className={styles.sectionHeadText}>
-              <span className={styles.eyebrow}>Программы обучения</span>
-              <h2 className={styles.title}>Популярные направления</h2>
+              <span className={styles.eyebrow}>Программы для детей</span>
+              <h2 className={styles.title}>Детские направления</h2>
               <p className={styles.subtitle}>
-                Выберите программу обучения и начните путь в IT уже сегодня
+                Программы для разного возраста — от первых шагов в IT до профессиональной подготовки
               </p>
             </div>
             <div className={styles.navControls}>
@@ -91,8 +91,8 @@ export function PopularCoursesSection() {
           </div>
 
           <div className={styles.footer}>
-            <Button to={ROUTES.itEducation} variant="secondary" size="lg">
-              Все направления
+            <Button to={ROUTES.itEducation} variant="cta" size="lg">
+              Все детские программы
             </Button>
           </div>
         </div>

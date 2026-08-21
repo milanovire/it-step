@@ -19,18 +19,15 @@
   border-radius: $radius-lg;
   padding: 32px;
   height: 100%;
-  transition: all $transition;
+  transition: border-color $transition, background $transition;
   border: 1px solid $color-border-light;
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: $shadow-lg;
     border-color: rgba(0, 102, 204, 0.2);
 
     .iconWrap {
-      background: linear-gradient(135deg, $color-primary, $color-accent);
+      background: $color-primary;
       color: $color-white;
-      transform: scale(1.05);
     }
   }
 }
@@ -45,7 +42,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  transition: all $transition;
+  transition: background $transition, color $transition;
 }
 
 .cardTitle {

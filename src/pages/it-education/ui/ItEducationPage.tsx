@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Briefcase, GraduationCap, Sun, Sparkles } from 'lucide-react'
 import { Container } from '@/shared/ui/Container'
 import { AnimateInView } from '@/shared/ui/AnimateInView'
@@ -13,11 +12,11 @@ import {
 import { HERO_CONTAINER_ID } from '@/shared/config/hero'
 import styles from './ItEducationPage.module.scss'
 
-type TabId = 'adults' | 'children' | 'seasonal'
+type TabId = 'children' | 'adults' |  'seasonal'
 
 const TABS: { id: TabId; label: string; icon: typeof Briefcase }[] = [
-  { id: 'adults', label: 'Для взрослых', icon: Briefcase },
   { id: 'children', label: 'Дети и подростки', icon: GraduationCap },
+  { id: 'adults', label: 'Для взрослых', icon: Briefcase },
   { id: 'seasonal', label: 'Сезонные программы', icon: Sun },
 ]
 
@@ -43,7 +42,7 @@ const TAB_COURSES: Record<TabId, () => ReturnType<typeof getAdultCourses>> = {
 }
 
 export function ItEducationPage() {
-  const [activeTab, setActiveTab] = useState<TabId>('adults')
+  const [activeTab, setActiveTab] = useState<TabId>('children')
   const courses = TAB_COURSES[activeTab]()
   const content = TAB_CONTENT[activeTab]
 
@@ -58,12 +57,7 @@ export function ItEducationPage() {
           <div className={styles.heroOverlay} />
         </div>
         <Container>
-          <motion.div
-            className={styles.heroContent}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55 }}
-          >
+          <div className={styles.heroContent}>
             <span className={styles.heroBadge}>
               <Sparkles size={14} />
               IT ШАГ · Витебск
@@ -87,7 +81,7 @@ export function ItEducationPage() {
                 <span>сезонная программа</span>
               </div>
             </div>
-          </motion.div>
+          </div>
         </Container>
       </section>
 
@@ -109,13 +103,7 @@ export function ItEducationPage() {
                     className={`${styles.tab} ${isActive ? styles.tabActive : ''}`}
                     onClick={() => setActiveTab(tab.id)}
                   >
-                    {isActive && (
-                      <motion.span
-                        className={styles.tabBg}
-                        layoutId="educationTab"
-                        transition={{ type: 'spring', stiffness: 380, damping: 32 }}
-                      />
-                    )}
+                    {isActive && <span className={styles.tabBg} />}
                     <Icon size={18} className={styles.tabIcon} />
                     <span>{tab.label}</span>
                   </button>
@@ -123,33 +111,20 @@ export function ItEducationPage() {
               })}
             </div>
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className={styles.sectionHead}>
-                  <h2 className={styles.sectionTitle}>{content.title}</h2>
-                  <p className={styles.sectionSubtitle}>{content.subtitle}</p>
-                </div>
+            <div>
+              <div className={styles.sectionHead}>
+                <h2 className={styles.sectionTitle}>{content.title}</h2>
+                <p className={styles.sectionSubtitle}>{content.subtitle}</p>
+              </div>
 
-                <div className={styles.coursesGrid}>
-                  {courses.map((course, index) => (
-                    <motion.div
-                      key={course.slug}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.35, delay: index * 0.04 }}
-                    >
-                      <CourseCard course={course} />
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </AnimatePresence>
+              <div className={styles.coursesGrid}>
+                {courses.map((course) => (
+                  <div key={course.slug}>
+                    <CourseCard course={course} />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </Container>
       </section>
