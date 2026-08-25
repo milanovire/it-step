@@ -4,16 +4,21 @@
   position: relative;
   min-height: 90vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
-  margin-top: -102px;
-  padding-top: 80px;
+  margin-top: calc(-1 * (#{$header-stack-height} + #{$top-bar-height}));
+  padding-top: calc(#{$header-stack-height} + #{$top-bar-height} + #{$hero-content-gap});
+
+  @include respond-to(lg) {
+    margin-top: calc(-1 * (#{$header-stack-height-lg} + #{$top-bar-height}));
+    padding-top: calc(#{$header-stack-height-lg} + #{$top-bar-height} + #{$hero-content-gap});
+  }
 
   @include respond-to(md) {
     min-height: auto;
-    padding-top: 72px;
+    padding-top: calc(#{$header-stack-height-lg} + #{$top-bar-height-md} + #{$hero-content-gap-md});
     padding-bottom: 60px;
-    margin-top: -64px;
+    margin-top: calc(-1 * (#{$header-stack-height-lg} + #{$top-bar-height-md}));
   }
 }
 
@@ -32,12 +37,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    105deg,
-    rgba(10, 22, 40, 0.92) 0%,
-    rgba(10, 22, 40, 0.75) 45%,
-    rgba(10, 22, 40, 0.4) 100%
-  );
+  background: rgba(10, 22, 40, 0.72);
 }
 
 .content {
@@ -47,11 +47,12 @@
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: center;
-  padding: 120px 0 80px;
+  padding: 48px 0 72px;
 
   @include respond-to(lg) {
     grid-template-columns: 1fr;
     gap: 40px;
+    align-items: flex-start;
     padding: 100px 0 60px;
   }
 

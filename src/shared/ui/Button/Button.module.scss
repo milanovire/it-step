@@ -33,17 +33,41 @@
 }
 
 .primary {
-  background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
+  background: $color-primary;
   color: $color-white;
-  box-shadow: 0 4px 16px rgba(0, 102, 204, 0.3);
 
   &:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.4);
+    background: $color-primary-dark;
   }
 
   &:active:not(:disabled) {
-    transform: translateY(0);
+    background: $color-primary-dark;
+  }
+}
+
+.cta {
+  color: $color-white;
+  background: $color-cta-warm;
+
+  &:hover:not(:disabled) {
+    background: $color-cta-warm-deep;
+  }
+
+  &:active:not(:disabled) {
+    background: $color-cta-warm-deep;
+  }
+}
+
+.ctaSubmit {
+  color: $color-white;
+  background: $color-cta-action;
+
+  &:hover:not(:disabled) {
+    background: $color-cta-action-deep;
+  }
+
+  &:active:not(:disabled) {
+    background: $color-cta-action-deep;
   }
 }
 
@@ -51,12 +75,10 @@
   background: $color-white;
   color: $color-primary;
   border: 1.5px solid $color-border;
-  box-shadow: $shadow-sm;
 
   &:hover:not(:disabled) {
     border-color: $color-primary;
     background: $color-primary-light;
-    transform: translateY(-2px);
   }
 }
 

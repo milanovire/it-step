@@ -9,6 +9,7 @@ import { NewsDetailPage } from '@/pages/news-detail'
 import { VacanciesPage } from '@/pages/vacancies'
 import { VacancyDetailPage } from '@/pages/vacancy-detail'
 import { ItStepRbPage } from '@/pages/it-step-rb'
+import { NotFoundPage } from '@/pages/not-found'
 
 export const router = createHashRouter([
   {
@@ -24,6 +25,7 @@ export const router = createHashRouter([
       { path: 'vacancies', element: <VacanciesPage /> },
       { path: 'vacancies/:slug', element: <VacancyDetailPage /> },
       { path: 'it-step-rb', element: <ItStepRbPage /> },
+      { path: '*', element: <NotFoundPage /> },
     ],
   },
 ])

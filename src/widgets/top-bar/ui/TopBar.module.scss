@@ -1,0 +1,61 @@
+@use '@/app/styles/variables' as *;
+
+.topBar {
+  background: $color-primary;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 13px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 36px;
+  padding: 6px 0;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+  transition: opacity $transition;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  svg {
+    flex-shrink: 0;
+    opacity: 0.85;
+  }
+}
+
+@include respond-to(md) {
+  .inner {
+    justify-content: center;
+    min-height: 32px;
+    padding: 5px 0;
+    font-size: 12px;
+  }
+
+  .address {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: min(52vw, 220px);
+  }
+}
+
+@include respond-to(sm) {
+  .inner {
+    gap: 12px;
+  }
+
+  .address {
+    max-width: min(46vw, 180px);
+  }
+}

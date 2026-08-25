@@ -4,13 +4,7 @@
   position: relative;
   padding: 96px 0;
   overflow: hidden;
-  background: linear-gradient(
-    160deg,
-    #eef6ff 0%,
-    #f5f9ff 35%,
-    #fafbfc 70%,
-    #f0f7ff 100%
-  );
+  background: $color-primary-light;
 
   @include respond-to(md) {
     padding: 64px 0;
@@ -18,40 +12,7 @@
 }
 
 .bgDecor {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.orb1 {
-  position: absolute;
-  top: -120px;
-  right: -80px;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 163, 224, 0.18) 0%, transparent 70%);
-  filter: blur(2px);
-}
-
-.orb2 {
-  position: absolute;
-  bottom: -100px;
-  left: -60px;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 102, 204, 0.14) 0%, transparent 70%);
-}
-
-.grid {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(0, 102, 204, 0.07) 1px, transparent 1px);
-  background-size: 28px 28px;
-  mask-image: linear-gradient(to bottom, black 20%, transparent 95%);
-  -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 95%);
+  display: none;
 }
 
 .panel {

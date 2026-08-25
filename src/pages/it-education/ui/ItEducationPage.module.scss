@@ -28,12 +28,7 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    115deg,
-    rgba(10, 22, 40, 0.92) 0%,
-    rgba(10, 22, 40, 0.6) 55%,
-    rgba(10, 22, 40, 0.35) 100%
-  );
+  background: rgba(10, 22, 40, 0.72);
 }
 
 .heroContent {
@@ -107,7 +102,7 @@
   position: relative;
   padding: 80px 0;
   overflow: hidden;
-  background: linear-gradient(160deg, #eef6ff 0%, #f8fbff 40%, #fafbfc 100%);
+  background: $color-bg;
 
   @include respond-to(md) {
     padding: 56px 0;
@@ -115,28 +110,7 @@
 }
 
 .catalogDecor {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.orb1 {
-  position: absolute;
-  top: -100px;
-  right: -60px;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 163, 224, 0.14) 0%, transparent 70%);
-}
-
-.dotGrid {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(0, 102, 204, 0.06) 1px, transparent 1px);
-  background-size: 28px 28px;
-  mask-image: linear-gradient(to bottom, black 15%, transparent 90%);
-  -webkit-mask-image: linear-gradient(to bottom, black 15%, transparent 90%);
+  display: none;
 }
 
 .catalogPanel {
@@ -256,7 +230,7 @@
 
 .ctaSection {
   padding: 80px 0;
-  background: linear-gradient(180deg, #fafbfc 0%, #eef6ff 100%);
+  background: $color-bg;
 
   @include respond-to(md) {
     padding: 56px 0;

@@ -1,0 +1,71 @@
+@use '@/app/styles/variables' as *;
+
+.section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 64px 0 96px;
+  background: $color-primary-light;
+
+  @include respond-to(md) {
+    padding: 48px 0 72px;
+  }
+}
+
+.card {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  @include glass;
+  border-radius: $radius-xl;
+  padding: 48px 32px;
+  box-shadow: $shadow-glass;
+
+  @include respond-to(md) {
+    padding: 36px 24px;
+  }
+}
+
+.iconWrap {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 92, 26, 0.12);
+  color: $color-cta-warm;
+}
+
+.code {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-primary;
+}
+
+.title {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 800;
+  color: $color-text;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.message {
+  font-size: 16px;
+  line-height: 1.6;
+  color: $color-text-secondary;
+  margin-bottom: 28px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}

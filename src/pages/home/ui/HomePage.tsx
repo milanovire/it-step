@@ -26,7 +26,7 @@ export function HomePage() {
                 subtitle="Запишитесь на бесплатную консультацию — мы поможем выбрать программу и ответим на все вопросы"
                 align="left"
               />
-              <Button to={ROUTES.itEducation} size="lg">
+              <Button to={ROUTES.itEducation} variant="cta" size="lg">
                 Выбрать курс
               </Button>
             </AnimateInView>

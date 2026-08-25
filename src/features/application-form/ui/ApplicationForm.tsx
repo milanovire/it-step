@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from 'react'
 import { Send } from 'lucide-react'
 import { Button } from '@/shared/ui/Button'
+import { getBitrixWebhookUrl } from '@/shared/config/env'
+import { resolveLeadTitle } from '../lib/resolveLeadTitle'
 import styles from './ApplicationForm.module.scss'
 
 interface ApplicationFormProps {
@@ -10,58 +12,59 @@ interface ApplicationFormProps {
 
 export function ApplicationForm({ courseName, compact }: ApplicationFormProps) {
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setErrorMessage(null)
+    setIsSubmitting(true)
 
     const formData = new FormData(e.currentTarget)
+    const leadTitle = resolveLeadTitle(courseName)
+    const message = formData.get('message')?.toString().trim()
+    const commentBlocks = message
+      ? [`Комментарий клиента:\n${message}`, '---']
+      : []
 
     try {
-      const response = await fetch(
-        'https://itstep.bitrix24.by/rest/18830/lkinlptow620dq0k/crm.lead.add',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
+      const response = await fetch(getBitrixWebhookUrl(), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fields: {
+            TITLE: leadTitle,
+            NAME: formData.get('name'),
+            PHONE: [
+              {
+                VALUE: formData.get('phone'),
+                VALUE_TYPE: 'WORK',
+              },
+            ],
+            COMMENTS: [
+              ...commentBlocks,
+              'Источник: Сайт',
+              `Страница: ${window.location.href}`,
+              `Раздел: ${leadTitle}`,
+            ].join('\n'),
           },
-          body: JSON.stringify({
-            fields: {
-              TITLE: `Заявка с сайта${courseName ? ` (${courseName})` : ''}`,
-              NAME: formData.get('name'),
-              PHONE: [
-                {
-                  VALUE: formData.get('phone'),
-                  VALUE_TYPE: 'WORK',
-                },
-              ],
-              EMAIL: formData.get('email')
-                ? [
-                    {
-                      VALUE: formData.get('email'),
-                      VALUE_TYPE: 'WORK',
-                    },
-                  ]
-                : [],
-               COMMENTS: `
-                Источник: Сайт
-                Страница: ${window.location.href}
-                Курс: ${courseName ?? 'Не указан'}
-                `,
-            },
-          }),
-        }
-      )
+        }),
+      })
 
-    const result = await response.json()
-    if (!response.ok || result.error) {
-      console.error(result)
-      throw new Error(result.error_description || 'Ошибка отправки')
-    }
+      const result = await response.json()
+      if (!response.ok || result.error) {
+        console.error(result)
+        throw new Error(result.error_description || 'Ошибка отправки')
+      }
 
-    setSubmitted(true)
+      setSubmitted(true)
     } catch (error) {
-    console.error(error)
-    alert('Не удалось отправить заявку. Попробуйте позже.')
+      console.error(error)
+      setErrorMessage('Не удалось отправить заявку. Попробуйте позже или позвоните нам.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -92,33 +95,31 @@ export function ApplicationForm({ courseName, compact }: ApplicationFormProps) {
       <div className={styles.fields}>
         <div className={styles.field}>
           <label htmlFor="name">Ваше имя</label>
-          <input id="name" name="name" type="text" placeholder="Иван Иванов" required />
+          <input id="name" name="name" type="text" placeholder="Иван Иванов" required disabled={isSubmitting} />
         </div>
         <div className={styles.field}>
           <label htmlFor="phone">Телефон</label>
-          <input id="phone" name="phone" type="tel" placeholder="+375 (__) ___-__-__" required />
+          <input id="phone" name="phone" type="tel" placeholder="+375 (__) ___-__-__" required disabled={isSubmitting} />
         </div>
-        {!compact && (
-          <div className={styles.field}>
-            <label htmlFor="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="email@example.com" />
-          </div>
-        )}
-        {!compact && (
-          <div className={styles.field}>
-            <label htmlFor="message">Комментарий</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Расскажите о ваших целях..."
-              rows={3}
-            />
-          </div>
-        )}
+        <div className={styles.field}>
+          <label htmlFor="message">Комментарий</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Расскажите о ваших целях или задайте вопрос..."
+            rows={compact ? 2 : 3}
+            disabled={isSubmitting}
+          />
+        </div>
       </div>
-      <Button type="submit" fullWidth>
+      {errorMessage && (
+        <p className={styles.error} role="alert">
+          {errorMessage}
+        </p>
+      )}
+      <Button type="submit" variant="ctaSubmit" fullWidth disabled={isSubmitting}>
         <Send size={18} />
-        Оставить заявку
+        {isSubmitting ? 'Отправка...' : 'Оставить заявку'}
       </Button>
     </form>
   )

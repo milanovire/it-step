@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import { Menu } from 'lucide-react'
 import { Logo } from '@/shared/ui/Logo'
 import { Container } from '@/shared/ui/Container'
@@ -37,12 +36,7 @@ export function Header() {
       className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${isHome ? styles.home : ''}`}
     >
       <Container>
-        <motion.div
-          className={styles.shell}
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
-        >
+        <div className={styles.shell}>
           <div className={styles.mainRow}>
             <Logo />
 
@@ -75,11 +69,7 @@ export function Header() {
                       className={`${styles.navLink} ${isActive ? styles.active : ''}`}
                     >
                       {isActive && (
-                        <motion.span
-                          className={styles.activeBg}
-                          layoutId="navActive"
-                          transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                        />
+                        <span className={styles.activeBg} />
                       )}
                       <span className={styles.navText}>{item.label}</span>
                     </Link>
@@ -96,7 +86,7 @@ export function Header() {
               </button>
             )}
           </div>
-        </motion.div>
+        </div>
       </Container>
 
       <MobileDrawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />

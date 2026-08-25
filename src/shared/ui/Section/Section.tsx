@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import { motion } from 'framer-motion'
 import styles from './Section.module.scss'
 
 interface SectionProps {
@@ -25,15 +24,9 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ title, subtitle, align = 'center' }: SectionHeaderProps) {
   return (
-    <motion.div
-      className={`${styles.header} ${styles[align]}`}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className={`${styles.header} ${styles[align]}`}>
       <h2 className={styles.title}>{title}</h2>
       {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-    </motion.div>
+    </div>
   )
 }

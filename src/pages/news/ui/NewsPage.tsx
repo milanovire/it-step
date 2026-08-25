@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { Container } from '@/shared/ui/Container'
 import { Section } from '@/shared/ui/Section'
 import { NewsCard } from '@/entities/news'
@@ -11,30 +10,21 @@ export function NewsPage() {
     <>
       <section id={HERO_CONTAINER_ID} className={styles.hero}>
         <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div>
             <h1 className={styles.title}>Новости</h1>
             <p className={styles.subtitle}>
-              Актуальные события, наборы, акции и достижения IT STEP в Витебске
+              Актуальные события, наборы, акции и достижения IT ШАГ в Витебске
             </p>
-          </motion.div>
+          </div>
         </Container>
       </section>
       <Section>
         <Container>
           <div className={styles.grid}>
-            {newsItems.map((item, index) => (
-              <motion.div
-                key={item.slug}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.06 }}
-              >
+            {newsItems.map((item) => (
+              <div key={item.slug}>
                 <NewsCard news={item} />
-              </motion.div>
+              </div>
             ))}
           </div>
         </Container>

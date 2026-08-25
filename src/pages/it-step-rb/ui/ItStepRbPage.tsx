@@ -1,5 +1,4 @@
 import { Award, Building2,Monitor, Briefcase, GraduationCap, Users, MapPin } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { Container } from '@/shared/ui/Container'
 import { Section, SectionHeader } from '@/shared/ui/Section'
 import { AnimateInView } from '@/shared/ui/AnimateInView'
@@ -10,7 +9,7 @@ import styles from './ItStepRbPage.module.scss'
 const stats = [
   { value: '2013', label: 'год основания' },
   { value: '17K+', label: 'выпускников' },
-  { value: '8', label: 'филиалов в РБ' },
+  { value: '8', label: 'учебных центров в РБ' },
 ]
 
 import minsk from '../../../assets/images/branches/Minsk.png'
@@ -110,18 +109,13 @@ export function ItStepRbPage() {
           <div className={styles.heroOverlay} />
         </div>
         <Container>
-          <motion.div
-            className={styles.heroContent}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>IT ШАГ в Республике Беларусь</h1>
             <p className={styles.heroDesc}>
               Лидер профессионального компьютерного образования с 2013 года.
-              Более 8 филиалов по всей стране готовят IT-специалистов мирового уровня.
+              Более 8 учебных центров по всей стране готовят IT-специалистов мирового уровня.
             </p>
-          </motion.div>
+          </div>
         </Container>
       </section>
 
@@ -193,7 +187,7 @@ export function ItStepRbPage() {
       <Section>
         <Container>
           <SectionHeader
-            title="Филиалы в Беларуси"
+            title="Учебные центры в Беларуси"
             subtitle="IT ШАГ представлена в крупнейших городах страны"
           />
           <div className={styles.branchesGrid}>
@@ -235,7 +229,7 @@ export function ItStepRbPage() {
             </AnimateInView>
             <AnimateInView direction="right" delay={0.1}>
               <div className={styles.contactCard}>
-                <h3>Контакты Витебского филиала</h3>
+                <h3>Контакты Витебского учебного центра</h3>
                 <div className={styles.contactItem}>
                   <MapPin size={20} />
                   <div>

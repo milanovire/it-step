@@ -927,4 +927,4 @@ export const getSeasonalPrograms = (): Course[] =>
 export const getCoursesByCategory = (category: CourseCategory): Course[] =>
   allCourses.filter((c) => (c.category ?? 'adults') === category)
 
-export const getPopularCourses = (): Course[] => courses.slice(0, 6)
+export const getPopularCourses = (): Course[] => getChildrenCourses().slice(0, 6)
