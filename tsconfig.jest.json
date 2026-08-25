@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.jest.tsbuildinfo",
     "module": "commonjs",
     "moduleResolution": "node",
     "verbatimModuleSyntax": false,
@@ -10,5 +11,12 @@
     "isolatedModules": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "jest.setup.ts"]
+  "include": [
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/test/**/*.ts",
+    "src/test/**/*.tsx",
+    "jest.setup.ts"
+  ],
+  "exclude": []
 }

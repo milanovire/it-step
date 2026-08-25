@@ -1,221 +1,368 @@
 # IT ШАГ — Vitebsk Website
 
-Website for the **IT STEP** training center in Vitebsk, Belarus.  
-The project is a static React SPA with course catalogs, news, vacancies, CT prep programs, and lead capture forms integrated with Bitrix24.
+Responsive **Single Page Application (SPA)** for the IT STEP training center in Vitebsk, Belarus.
+
+The application provides information about educational programs, news, vacancies, CT preparation courses, and application forms integrated with Bitrix24 CRM.
 
 ---
 
-## About the Website 
+## Features
 
-**IT STEP Vitebsk** is the official web presence of a local branch of IT STEP Academy — a computer education provider operating in Belarus since 2013.
-
-The site helps prospective students and parents:
-
-- explore **IT courses for adults**, **children & teens**, and **seasonal programs**;
-- read detailed **course pages** with curriculum, benefits, and FAQ;
-- prepare for **Centralized Testing (CT)** with subject-specific program info;
-- browse **news & announcements** (open lessons, promotions, events);
-- view **job openings** at the center;
-- learn about **IT STEP branches across Belarus**;
-- submit **application forms** that create leads in Bitrix24 CRM.
-
-The UI is in **Russian**, optimized for desktop and mobile, with a sticky top contact bar, glass-style header, and content-focused layout without heavy scroll animations.
+- Course catalog for adults, children, and teenagers
+- Detailed course pages with curriculum, benefits, and FAQ
+- CT preparation programs
+- News and announcements
+- Vacancy listings
+- IT STEP branches information
+- Application forms with Bitrix24 CRM integration
+- Responsive design for desktop, tablet, and mobile
+- Runtime error handling and fallback UI
+- Unit and component testing
 
 ---
 
-## О проекте (для разработчиков)
+## Tech Stack
 
-Одностраничное приложение (SPA) на React без backend-сервера. Контент (курсы, новости, вакансии) хранится в TypeScript-модулях в `src/entities/`. Сборка — статические файлы в `dist/`, пригодные для деплоя на любой static hosting.
+| Category | Technology |
+|---|---|
+| Framework | React 19.2.7 |
+| Language | TypeScript |
+| Build Tool | Vite 8 |
+| Routing | React Router 7 |
+| Styling | SCSS Modules |
+| Animations | Framer Motion |
+| Carousel | Swiper |
+| Icons | Lucide React |
+| Testing | Jest 30, Testing Library, jsdom |
+| TypeScript Testing | ts-jest |
+| Linting | oxlint |
 
-### Стек
+---
 
-| Категория | Технологии |
-|-----------|------------|
-| UI | React 19, TypeScript |
-| Routing | React Router 7 (`createHashRouter`) |
-| Сборка | Vite 8 |
-| Стили | SCSS Modules, CSS variables в `_variables.scss` |
-| Анимации | Framer Motion (drawer, FAQ, scroll-to-top) |
-| Карусели | Swiper |
-| Иконки | Lucide React |
-| Тесты | Jest 30, Testing Library, jsdom |
-| Линтер | oxlint |
+## Architecture
 
-### Архитектура (Feature-Sliced Design)
+The project follows the **Feature-Sliced Design (FSD)** architecture.
 
-```
+```text
 src/
-├── app/           # Точка входа, роутер, глобальные провайдеры, стили
-├── pages/         # Страницы (композиция widgets + entities)
-├── widgets/       # Крупные блоки UI (Header, Footer, HeroSection, …)
-├── features/      # Фичи (ApplicationForm, MobileDrawer)
-├── entities/      # Бизнес-сущности (course, news, vacancy) + UI-карточки
-├── shared/        # Переиспользуемые UI, config, lib, hooks
-└── test/          # Хелперы для тестов (renderWithRouter, mocks)
+├── app/           # Application initialization, providers and global styles
+├── pages/         # Application pages
+├── widgets/       # Complex composite UI blocks
+├── features/      # User interactions and application features
+├── entities/      # Business entities and related UI
+└── shared/        # Reusable UI, hooks, utilities and configuration
 ```
 
-**Правило импортов:** слой может импортировать только из слоёв ниже (`pages` → `widgets` → `features` → `entities` → `shared`).
+### Dependency Direction
 
-Алиас путей: `@/` → `src/` (настроен в Vite и TypeScript).
+```text
+app
+ ↓
+pages
+ ↓
+widgets
+ ↓
+features
+ ↓
+entities
+ ↓
+shared
+```
+
+Each layer can depend only on layers below it.
+
+The project uses the `@/` alias for imports from the `src/` directory.
 
 ---
 
-## Быстрый старт
+## Project Structure
 
-### Требования
+```text
+src/
+├── app/
+│   ├── providers/     # Router, Error Boundary and application providers
+│   └── styles/        # Global styles and design tokens
+│
+├── pages/             # Page-level compositions
+│
+├── widgets/           # Header, Footer, Hero and other UI blocks
+│
+├── features/          # Application form and user interactions
+│
+├── entities/
+│   ├── course/        # Course data, models and UI
+│   ├── news/          # News data, models and UI
+│   └── vacancy/       # Vacancy data, models and UI
+│
+├── shared/
+│   ├── config/        # Application configuration
+│   ├── hooks/         # Reusable hooks
+│   ├── lib/           # Utilities and helpers
+│   └── ui/            # Reusable UI components
+│
+└── test/              # Shared testing utilities
+```
 
-- Node.js 20+ (рекомендуется LTS)
+---
+
+## Requirements
+
+- Node.js 20+
 - npm 10+
 
-### Установка и запуск
+Node.js LTS is recommended.
+
+---
+
+## Getting Started
+
+### Installation
 
 ```bash
 npm install
+```
+
+### Development
+
+```bash
 npm run dev
 ```
 
-Приложение откроется на `http://localhost:5173` (порт Vite по умолчанию).
+The application runs on:
 
-### Сборка и превью
+```text
+http://localhost:5173
+```
+
+### Production Build
 
 ```bash
-npm run build    # tsc + vite build → dist/
-npm run preview  # локальный просмотр production-сборки
+npm run build
 ```
 
-### Тесты и линтер
+### Preview Production Build
 
 ```bash
-npm test              # все тесты
-npm run test:coverage # с отчётом покрытия 
-npm run lint          # oxlint
+npm run preview
 ```
 
 ---
 
-## Маршруты
+## Available Scripts
 
-Роутер использует **Hash Router** (`#/…`), что упрощает деплой на static hosting без rewrite-правил.
-
-| URL hash | Страница |
-|----------|----------|
-| `#/` | Главная |
-| `#/it-education` | Каталог IT-обучения (вкладки: дети / взрослые / сезонные) |
-| `#/courses/:slug` | Детальная страница курса |
-| `#/ct-prep` | Подготовка к ЦТ |
-| `#/news` | Список новостей |
-| `#/news/:slug` | Страница новости |
-| `#/vacancies` | Вакансии |
-| `#/vacancies/:slug` | Детальная вакансия |
-| `#/it-step-rb` | IT STEP в Республике Беларусь |
-| `#/*` | 404 (NotFoundPage) |
-
-Константы маршрутов: `src/shared/config/routes.ts`  
-Определение роутера: `src/app/providers/router.tsx`
+| Command | Description |
+|---|---|
+| `npm run dev` | Start development server |
+| `npm run build` | Type-check and create production build |
+| `npm run preview` | Preview production build |
+| `npm test` | Run Jest tests |
+| `npm run test:coverage` | Run tests with coverage |
 
 ---
 
-## Контент и конфигурация
+## Routing
 
-| Файл | Назначение |
-|------|------------|
-| `src/shared/config/contacts.ts` | Телефоны, адрес, email, соцсети |
-| `src/shared/config/routes.ts` | Пути и пункты навигации |
-| `src/shared/config/diary.ts` | URL электронного дневника MyStat |
-| `src/shared/config/hero.ts` | ID hero-контейнера для scroll/layout |
-| `src/entities/course/model/courses.ts` | Курсы для взрослых + хелперы (`getPopularCourses`, …) |
-| `src/entities/course/model/children-programs.ts` | Детские и сезонные программы |
-| `src/entities/news/model/news.ts` | Новости |
-| `src/entities/vacancy/model/vacancies.ts` | Вакансии |
+The application uses **React Router 7.18** with **Hash Routing**.
 
-### Добавление курса
+| Route | Description |
+|---|---|
+| `#/` | Home |
+| `#/it-education` | Education catalog |
+| `#/courses/:slug` | Course details |
+| `#/ct-prep` | CT preparation |
+| `#/news` | News |
+| `#/news/:slug` | News details |
+| `#/vacancies` | Vacancies |
+| `#/vacancies/:slug` | Vacancy details |
+| `#/it-step-rb` | IT STEP in Belarus |
+| `#/*` | Not Found |
 
-1. Добавить объект `Course` в `courses.ts` или `children-programs.ts` (поле `slug` — уникальный).
-2. Страница откроется автоматически по `#/courses/{slug}`.
-3. Для отображения в «Детских направлениях» на главной — курс должен быть в `getChildrenCourses()` (category: `'children'`).
-
-### Добавление новости / вакансии
-
-Аналогично — массивы в `news.ts` / `vacancies.ts`, slug используется в URL.
+Hash Routing allows the SPA to be deployed to static hosting without additional server-side route rewriting.
 
 ---
 
-## Форма заявки (Bitrix24)
+## Bitrix24 Integration
 
-Компонент: `src/features/application-form/ui/ApplicationForm.tsx`  
-URL webhook: `src/shared/config/env.ts` → `getBitrixWebhookUrl()`
+Application forms are implemented in:
 
-При отправке выполняется `POST` на Bitrix24 REST API (`crm.lead.add`). В теле передаются имя, телефон, комментарий, URL страницы и название курса/раздела.
-
-**Важно для production:**
-
-- CORS и доступность API зависят от настроек Bitrix24;
-- при ошибке сети пользователь видит inline-сообщение (`role="alert"`), форма не использует `alert()`.
-
----
-
-## Стили
-
-- Глобальные стили: `src/app/styles/global.scss`
-- Design tokens: `src/app/styles/_variables.scss` (цвета, радиусы, breakpoints, mixins)
-- Компонентные стили: `*.module.scss` рядом с компонентом
-- Импорт variables в SCSS: `@use '@/app/styles/variables' as *;`
-- Mixins: `glass`, `glass-scrollbar`, `respond-to(md|lg|sm)`
-
-Breakpoints:
-
-- `lg`: ≤ 1024px  
-- `md`: ≤ 768px  
-- `sm`: ≤ 480px  
-
----
-
-## Обработка ошибок
-
-- **404:** `src/pages/not-found` — catch-all маршрут `*`
-- **Error Boundary:** `src/app/providers/ErrorBoundary.tsx` оборачивает `<Outlet />` в Layout
-- **Fallback UI:** `src/shared/ui/ErrorFallback`
-- Несуществующий slug курса/новости/вакансии — редирект на список (не 404)
-
----
-
-## Тестирование
-
-- Тесты лежат рядом с кодом: `*.test.ts`, `*.test.tsx`
-- `renderWithRouter` — `src/test/renderWithRouter.tsx` для компонентов с роутингом
-- Swiper и IntersectionObserver замоканы в `jest.setup.ts`
-- SCSS импортируются через `identity-obj-proxy`
-
----
-
-## Деплой
-
-1. `npm run build`
-2. Загрузить содержимое `dist/` на static host (nginx, GitHub Pages, S3, и т.д.)
-3. Hash routing не требует server-side fallback для маршрутов
-4. Убедиться, что `base` в `vite.config.ts` соответствует пути на сервере (сейчас `'/'`)
-
----
-
-## Структура Layout
-
-```
-TopBar          — контакты (адрес, телефон)
-Header          — логотип, навигация, mobile drawer
-<main>          — контент страницы (ErrorBoundary)
-Footer          — навигация, контакты, соцсети
-ScrollToTopButton
+```text
+src/features/application-form/ui/ApplicationForm.tsx
 ```
 
-Sticky-шапка: `src/widgets/layout/ui/Layout.module.scss` (`.siteHeader`).
+The application sends lead data to Bitrix24 using the `crm.lead.add` REST API method.
+
+The submitted data may include:
+
+- Name
+- Phone number
+- Comment
+- Current page URL
+- Selected course or section
+
+The Bitrix24 webhook is provided through environment configuration.
+
+Network and API errors are handled through inline UI feedback instead of browser alerts.
 
 ---
 
-## Полезные заметки
+## Error Handling
 
-- **Язык интерфейса:** русский; тексты правятся в компонентах и data-файлах entities.
-- **Изображения курсов/новостей:** часть URL ведёт на внешние CDN (Unsplash, itstep.by) — при офлайн-разработке нужен интернет.
-- **framer-motion:** используется точечно (mobile drawer, FAQ, кнопка «наверх»); scroll/page enter-анимации отключены по дизайну.
+The application provides several levels of error handling:
+
+- **404 handling** through a catch-all route
+- **React Error Boundary** for runtime errors
+- **Fallback UI** for unexpected application errors
+- **Inline form errors** for failed API requests
+- **Network error handling** for unsuccessful requests
+
+Relevant locations:
+
+```text
+src/app/providers/ErrorBoundary.tsx
+src/shared/ui/ErrorFallback/
+src/pages/not-found/
+```
 
 ---
 
+## Testing
+
+The project uses:
+
+- Jest 30
+- Testing Library
+- jsdom
+- ts-jest
+
+Test files follow the naming convention:
+
+```text
+*.test.ts
+*.test.tsx
+```
+
+Tests are located close to the functionality they cover.
+
+Shared test utilities are located in:
+
+```text
+src/test/
+```
+
+### Coverage
+
+The configured global coverage threshold is **75%** for:
+
+- Branches
+- Functions
+- Lines
+- Statements
+
+Run coverage with:
+
+```bash
+npm run test:coverage
+```
+
+---
+
+## Styling
+
+The project uses **SCSS Modules** for component-level styling.
+
+Global styles:
+
+```text
+src/app/styles/global.scss
+```
+
+Design tokens and shared SCSS utilities:
+
+```text
+src/app/styles/_variables.scss
+```
+
+Component styles follow the convention:
+
+```text
+Component.tsx
+Component.module.scss
+```
+
+Responsive breakpoints:
+
+| Breakpoint | Width |
+|---|---:|
+| `lg` | ≤ 1024px |
+| `md` | ≤ 768px |
+| `sm` | ≤ 480px |
+
+---
+
+## Content
+
+Course, news, and vacancy data is stored in TypeScript modules.
+
+### Courses
+
+```text
+src/entities/course/model/courses.ts
+src/entities/course/model/children-programs.ts
+```
+
+### News
+
+```text
+src/entities/news/model/news.ts
+```
+
+### Vacancies
+
+```text
+src/entities/vacancy/model/vacancies.ts
+```
+
+### Configuration
+
+```text
+src/shared/config/
+```
+
+The configuration layer contains application-level data such as contacts, routes, and external service configuration.
+
+---
+
+## Deployment
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+The production files are generated in:
+
+```text
+dist/
+```
+
+The `dist/` directory can be deployed to a static hosting provider or web server.
+
+Because the application uses Hash Routing, additional server-side route rewriting is not required.
+
+---
+
+## Development Guidelines
+
+When adding new functionality:
+
+1. Follow the existing FSD architecture.
+2. Keep business entities inside `entities`.
+3. Keep user interactions and application scenarios inside `features`.
+4. Keep reusable components and utilities inside `shared`.
+5. Avoid placing business logic directly inside page components.
+6. Reuse existing components and utilities where possible.
+7. Add tests for new functionality.
+8. Keep sensitive configuration outside the source code.
+
+---
